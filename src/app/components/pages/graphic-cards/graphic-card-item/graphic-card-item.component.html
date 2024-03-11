@@ -1,0 +1,14 @@
+<div class="flex">
+    <div class="grid grid-cols-4">
+        <figure class="flex justify-center items-center">
+            <img src="../../../../../assets/img/cards/{{card._id}}.jpg" alt="{{card.title}}">
+        </figure>
+        <div class="col-span-3">
+            <h2 (click)="onHedLineClicked(card._id)"> <span class="text-blue-500 text-lg">{{card.title}}</span>
+                {{card.subtitle}}</h2>
+            <p>{{card.description}}</p>
+        </div>
+    </div>
+
+
+</div>

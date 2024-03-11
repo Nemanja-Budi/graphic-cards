@@ -1,0 +1,9 @@
+<div>
+    <div>
+        <app-graphic-form></app-graphic-form>
+    </div>
+    <div *ngFor="let comment of co | async">
+        <p><span>{{comment.author}}</span>{{comment.date | date}}<span></span></p>
+        {{comment.text}}
+    </div>
+</div>

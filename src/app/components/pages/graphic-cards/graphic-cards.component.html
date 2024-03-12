@@ -1,5 +1,12 @@
 <div>
-    <div>Paganacija</div>
+    <div class="flex justify-center">
+        <ngb-pagination
+        (pageChange)="onChangePage($event)" 
+        [(page)]="queryParams.page"
+        [pageSize]="queryParams.pageSize"
+        [collectionSize]="count"
+        />
+    </div>
     <div class="grid grid-cols-4 gap-5">
         <div class="col-span-3 flex flex-col gap-5">
             <app-graphic-card-item *ngFor="let card of cards | async" [card]="card"></app-graphic-card-item>
@@ -9,3 +16,4 @@
         </div>
     </div>
 </div>
+

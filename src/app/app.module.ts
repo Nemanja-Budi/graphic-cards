@@ -11,6 +11,9 @@ import { GraphicCardItemComponent } from './components/pages/graphic-cards/graph
 import { ReactiveFormsModule } from '@angular/forms';
 import { GraphicCommentsComponent } from './components/pages/graphic-cards/graphic-comments/graphic-comments.component';
 import { GraphicFormComponent } from './components/pages/graphic-cards/graphic-comments/graphic-form/graphic-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 
 @NgModule({
@@ -21,13 +24,16 @@ import { GraphicFormComponent } from './components/pages/graphic-cards/graphic-c
     GraphicCardsComponent,
     GraphicCardItemComponent,
     GraphicCommentsComponent,
-    GraphicFormComponent
+    GraphicFormComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

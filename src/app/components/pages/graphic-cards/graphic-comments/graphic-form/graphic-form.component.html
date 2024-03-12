@@ -1,7 +1,7 @@
-<form [formGroup]="graphicForm" (ngSubmit)="onSubmit()" class="px-2 w-[70%] mx-auto flex flex-col gap-2">
+<form [formGroup]="graphicForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-2">
     <div class="flex flex-col">
-        <label for="name" class="text-lg">Name</label>
-        <input class="border-2 p-2 rounded-md" type="text" id="name" formControlName="name" required autocomplete="off"
+        <label for="author" class="text-lg">Name</label>
+        <input class="border-2 p-2 rounded-md" type="text" id="author" formControlName="author" required autocomplete="off"
             placeholder="Name">
     </div>
     <div class="flex flex-col">

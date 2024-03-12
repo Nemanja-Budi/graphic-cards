@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
-import { Observable, map, switchMap } from 'rxjs';
-import { Card } from 'src/app/models/card.model';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, inject } from '@angular/core';
+import { Observable, map } from 'rxjs';
 import { CommentCustom } from 'src/app/models/comment-custom.model';
 import { CardService } from 'src/app/services/card.service';
 
@@ -9,23 +8,29 @@ import { CardService } from 'src/app/services/card.service';
   templateUrl: './graphic-comments.component.html',
   styleUrls: ['./graphic-comments.component.css']
 })
-export class GraphicCommentsComponent implements OnInit {
-
+export class GraphicCommentsComponent implements OnInit, OnChanges{
+  @Input() id: number | null = null;
   cardService: CardService = inject(CardService);
-  @Input() idProba: number | null = null;
-  comments: CommentCustom[] = [];
-  co: Observable<CommentCustom[]> = new Observable<CommentCustom[]>();
+  comments: Observable<CommentCustom[]> = new Observable<CommentCustom[]>();
+
+  onGetAddedComment(): void {
+    this.onGetComments();
+  }
 
   onGetComments(): void {
-    // if (this.idProba === null) return;
-    // this.cardService.getComments(this.idProba).subscribe((value) => {
-    //   this.comments = value.results
-    // });
-    if (this.idProba === null) return;
-    this.co = this.cardService.getComments(this.idProba).pipe(map((v) => v.results));
+    if(this.id !== null) {
+      this.comments = this.cardService.getComments(this.id).pipe(map((value) => value.results));    
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['id'] && !changes['id'].firstChange) {
+      this.onGetComments();
+    }
   }
 
   ngOnInit(): void {
     this.onGetComments();
   }
+
 }

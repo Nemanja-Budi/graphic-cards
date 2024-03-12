@@ -10,7 +10,8 @@ import { GraphicCardsComponent } from './components/pages/graphic-cards/graphic-
 import { GraphicCardItemComponent } from './components/pages/graphic-cards/graphic-card-item/graphic-card-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GraphicCommentsComponent } from './components/pages/graphic-cards/graphic-comments/graphic-comments.component';
-import { GraphicFormComponent } from './components/pages/graphic-cards/graphic-form/graphic-form.component';
+import { GraphicFormComponent } from './components/pages/graphic-cards/graphic-comments/graphic-form/graphic-form.component';
+
 
 @NgModule({
   declarations: [

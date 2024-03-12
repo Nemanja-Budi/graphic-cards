@@ -1,9 +1,14 @@
-<div>
+<div class="flex flex-col gap-6">
     <div>
-        <app-graphic-form></app-graphic-form>
+        <app-graphic-form [idG]="id" (newCommentAdded)="onGetAddedComment()"></app-graphic-form>
     </div>
-    <div *ngFor="let comment of co | async">
-        <p><span>{{comment.author}}</span>{{comment.date | date}}<span></span></p>
-        {{comment.text}}
+    <div class="flex flex-col gap-5">
+        <div *ngFor="let comment of comments | async">
+            <div class="flex justify-between">
+                <p class="font-bold">{{comment.author}}</p>
+                <p>{{comment.date | date}}</p>
+            </div>
+            <p>{{comment.text}}</p>
+        </div>
     </div>
 </div>
